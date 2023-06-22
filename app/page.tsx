@@ -1,4 +1,3 @@
-export const dynamic = "auto";
 import Container from "@/app/components/Container";
 import ListingCard from "@/app/components/listings/ListingCard";
 import EmptyState from "@/app/components/EmptyState";
@@ -9,6 +8,10 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 interface HomeProps {
   searchParams: IListingsParams;
 }
+
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+export const revalidate = 60;
 
 const Home = async ({ searchParams }: HomeProps) => {
   const listings = await getListings(searchParams);
